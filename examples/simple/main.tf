@@ -10,10 +10,11 @@ data "aws_ami" "amzn-2" {
   filter {
     name   = "name"
     values = ["amzn2-ami-hvm-*-x86_64-ebs"]
+    //values = ["ubuntu-bionic-18.04-*"]
   }
 }
 
 resource "aws_instance" "example" {
   ami           = data.aws_ami.amzn-2.id
-  instance_type = "t2.micro"
+  instance_type = "t2.small"
 }
